@@ -12,7 +12,7 @@ const App: React.FC = () => {
     <div className="flex justify-center items-center h-screen">
       <SuggestionBox suggestions={suggestions} />
     </div>
-  );
+  ); 
 };
 
 export default App;

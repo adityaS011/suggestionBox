@@ -11,8 +11,11 @@ interface SuggestionBoxProps {
 
 const SuggestionBox: React.FC<SuggestionBoxProps> = ({ suggestions }) => {
   const [filtered, setFiltered] = useState<Suggestion[]>([]);
+
   const [selectedSuggestion, setSelectedSuggestion] = useState<Suggestion | null>(null);
+
   const [inputText, setInputText] = useState<string>('');
+  
   const [active, setActive] = useState<boolean>(false); 
 
   useEffect(() => {
@@ -23,7 +26,8 @@ const SuggestionBox: React.FC<SuggestionBoxProps> = ({ suggestions }) => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
     setInputText(inputValue);
-    const filtered = suggestions.filter(suggestion =>
+    const filtered = 
+    suggestions.filter(suggestion =>
       suggestion.name.toLowerCase().includes(inputValue.toLowerCase())
     );
     setFiltered(filtered);
@@ -54,7 +58,7 @@ const SuggestionBox: React.FC<SuggestionBoxProps> = ({ suggestions }) => {
       return (
         <input
           type="text"
-          value={inputText} // Display the selected suggestion's name initially
+          value={inputText} 
           onChange={handleInputChange}
           onClick={handleInputClick}
           placeholder="Type here..."
