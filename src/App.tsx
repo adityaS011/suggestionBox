@@ -1,17 +1,21 @@
 import React from 'react';
-import SuggestionBox from './components/SuggestionBox';
+import { BrowserRouter, Routes, Route} from 'react-router-dom'
+import Home from './Pages/Home/Home';
+import Login from './Pages/Login/Login';
+import Dashboard from './Pages/Dashboard/Dashboard';
 
-const suggestions = [
-  { name: 'Toyota', logoUrl: 'https://logos-world.net/wp-content/uploads/2020/04/Toyota-Symbol.png' },
-  { name: 'Honda', logoUrl: 'https://logos-world.net/wp-content/uploads/2021/03/Honda-Emblem.png' },
-  { name: 'BMW', logoUrl: 'https://logos-world.net/wp-content/uploads/2020/04/BMW-Logo.png' },
-];
+
 
 const App: React.FC = () => {
   return (
-    <div className="flex justify-center items-center h-screen">
-      <SuggestionBox suggestions={suggestions} />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home/>} />  {/* Home component for root path */}
+        <Route path="/Login" element={<Login/>} />  {/* About component for /about path */}
+        <Route path="/MyDashboard" element={<Dashboard/>} />  {/* About component for /about path */}
+        
+      </Routes>
+    </BrowserRouter>
   ); 
 };
 
